@@ -1,0 +1,40 @@
+var readlineSync = require("readline-sync")
+var userName = readlineSync.question("What is your Name? ")
+console.log("Welcome " + userName + " to Marvel Universe!!!")
+
+var userScore = 0
+function play(question,answer){
+  var userAnswer = readlineSync.question(question)
+
+  if(userAnswer===answer){
+    console.log("Your answer is right!!!")
+    userScore = userScore + 1
+  }else{
+    console.log("You answer is wrong!!!")
+  }
+  console.log("Your Score is " + userScore)
+  console.log("------------------")
+}
+
+var questionOne = {
+  question: "Who was the leader of Avengers? ",
+  answer: "Captain America"
+}
+
+var questionTwo = {
+  question: "From where does Thor came from? ",
+  answer: "Asgard"
+}
+
+var questionList = [questionOne,questionTwo]
+
+for(i=0;i<questionList.length;i=i+1){
+  var currentQuestion = questionList[i]
+  play(currentQuestion.question,currentQuestion.answer)
+  
+}
+// play("Who was the leader of Avengers? ","Captain America")
+// play("From where does Thor came from? ","Asgard")
+
+console.log("Your final score is " + userScore)
+console.log("Thank you for playing!!!")
